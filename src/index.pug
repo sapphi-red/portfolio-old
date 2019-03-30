@@ -1,20 +1,11 @@
+- var title = "Home";
 doctype html
 html(lang="ja")
   head
-    link(rel="icon" type="image/png" href="/img/icon.png")
-    link(rel="stylesheet" href="/main.css")
-    script(src="/main.js" defer)
+    include /includes/_imports.pug
     style(type="text/css").
       html, body, #container { height: 100%; }
-    title Home - green.sapphi.red
-    // ここからOGP
-    meta(name="description" content="翠のポートフォリオ。")
-    meta(property="og:title" content="Home")
-    meta(property="og:description" content="翠のポートフォリオ。")
-    meta(property="og:url" content="https://green.sapphi.red/")
-    meta(name="twitter:card" content="summary")
-    meta(name="twitter:site" content="@sapphi_red")
-    meta(name="og:img" content="https://green.sapphi.red/img/icon.png")
+    include /includes/_ogp.pug
   body
     #container.start
       #main

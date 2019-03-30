@@ -5,7 +5,7 @@ const sass = require("gulp-sass");
 const browserSync = require("browser-sync");
 
 const paths = {
-  pug: "./src/**/*.pug",
+  pug: ["./src/**/*.pug", "!./src/**/_*.pug"],
   sass: "./src/**/*.scss",
   js: "./src/**/*.js",
   img: "./src/img/**",
@@ -14,6 +14,9 @@ const paths = {
 };
 
 const options = {
+  pug: {
+    basedir: "./src",
+  },
   sass: {
     output: "expanded",
   },
@@ -23,7 +26,7 @@ gulp.task("html", () => {
   return (
     gulp
       .src(paths.pug)
-      .pipe(pug())
+      .pipe(pug(options.pug))
       .pipe(gulp.dest(paths.output))
   );
 });

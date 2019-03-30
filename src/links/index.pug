@@ -1,26 +1,13 @@
+- var title = "Links"
 doctype html
 html(lang="ja")
   head
-    link(rel="icon" type="image/png" href="/img/icon.png")
-    link(rel="stylesheet" href="/main.css")
-    script(src="/main.js" defer)
-    title Links - green.sapphi.red
-    // ここからOGP
-    meta(name="description" content="翠のポートフォリオ。")
-    meta(property="og:title" content="Links")
-    meta(property="og:description" content="翠のポートフォリオ。")
-    meta(property="og:url" content="https://green.sapphi.red/")
-    meta(name="twitter:card" content="summary")
-    meta(name="twitter:site" content="@sapphi_red")
-    meta(name="og:img" content="https://green.sapphi.red/img/icon.png")
+    include /includes/_imports.pug
+    include /includes/_ogp.pug
   body
     #container.menu
       #main
-        img(src="/img/icon.png")
-        ul
-          li: a(href="/introduction/") Introduction
-          //li: a(href="/works/") Works
-          li: a(href="/links/") Links
+        include /includes/_menu.pug
       #content.links
         h1 リンク
         ul
