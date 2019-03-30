@@ -4,22 +4,38 @@ const $mainImg = $main.querySelector("img");
 
 let menu = false;
 
-$mainImg.addEventListener("mousedown", () => {
-  $mainImg.classList.add("focus");
+if (location.pathname === "/") {
+  const onMousedown = () => {
+    $mainImg.classList.add("focus");
 
-  let cancel = true;
-  setTimeout( () =>{
-    cancel = false;
-  }, 500);
+    let cancel = true;
+    const timeoutId = setTimeout( () =>{
+      cancel = false;
+    }, 500);
 
-  $mainImg.addEventListener("mouseup", () => {
-    $mainImg.classList.remove("focus");
-    if (cancel) return;
+    const onMouseLeave = () => {
+      clearTimeout(timeoutId);
+      $mainImg.classList.remove("focus");
+      $mainImg.removeEventListener("mouseup", onMouseUp);
+    };
+    $mainImg.addEventListener("mouseleave", onMouseLeave);
 
-    $container.classList.replace("start", "menu");
-    menu = true;
-  });
-});
+    const onMouseUp = () => {
+      clearTimeout(timeoutId);
+      $mainImg.classList.remove("focus");
+      $mainImg.removeEventListener("mouseleave", onMouseLeave);
+      if (cancel) return;
+
+      $container.classList.replace("start", "menu");
+      $mainImg.removeEventListener("mousedown", onMousedown);
+      menu = true;
+    };
+    $mainImg.addEventListener("mouseup", onMouseUp, { once: true });
+  };
+  $mainImg.addEventListener("mousedown", onMousedown);
+} else {
+  menu = true;
+}
 
 $mainImg.addEventListener("click", () => {
   if (!menu) return;
