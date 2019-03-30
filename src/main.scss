@@ -3,7 +3,7 @@
 }
 
 html, body, #container {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -114,6 +114,8 @@ body {
         transition: opacity .2s 1s;
 
         a {
+          display: inline-block;
+          width: 100%;
           color: #00422d;
           text-decoration: none;
           font-size: 1.3rem;
@@ -159,9 +161,39 @@ body {
   flex-grow: 1;
   margin: 30px 30px 30px 10px;
   padding: 10px 20px;
-  background: #eeeeee;
+  background: #f6f6f6;
 
   @media (max-width: 700px) {
     margin: 0 20px 20px 20px;
+  }
+
+  div {
+    border: solid 1px #888888;
+    padding: 0 20px;
+    margin: 20px 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+   padding-left: 1em;
+   text-indent: -.7em;
+  }
+  li:before {
+    content: "☘ ";
+    color: green;
+  }
+
+  &.links {
+    ul {
+      img {
+        height: 1.2em;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
   }
 }
