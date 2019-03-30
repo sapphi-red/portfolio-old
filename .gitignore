@@ -1,0 +1,8 @@
+node_modules/
+/bin/
+/release/
+/src/
+/.history/
+/gulpfile.js
+/package.json
+/package-lock.json
