@@ -12,54 +12,96 @@ body {
   background: linear-gradient(#a9dfcd, #3db38c, #00422d);
 }
 
-#container {
+#container.start {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  #main {
+    position: relative;
+    width: 40%;
+
+    img {
+      height: auto;
+      width: 100%;
+
+      padding: 5px;
+      border-radius: 50% 50%;
+      border-style: solid;
+      border-width: 0px;
+
+      border-color: #b0ffd1;
+      transition: padding .5s, border-width .5s;
+
+      &:hover:not(.focus) {
+        padding: 0px;
+        border-width: 5px;
+        transition: padding .5s, border-width .5s;
+      }
+    }
+
+    svg {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      transform: rotate(-90deg);
+
+      circle {
+        fill: transparent;
+      }
+    }
+    img.focus + svg circle {
+      stroke: #055f2b;
+      stroke-width: 10px;
+      animation: circle 1s;
+    }
+    @keyframes circle {
+      0% { stroke-dasharray: 0 360; }
+      99.9%,to { stroke-dasharray: 360 360; }
+    }
+
+    ul {
+      height: 0;
+      overflow: hidden;
+      li {
+        opacity: 0;
+      }
+    }
+  }
 }
 
-#main {
-  position: relative;
-  width: 40%;
+#container.menu {
+  display: flex;
+  flex-direction: row;
 
-  img {
-    height: auto;
-    width: 100%;
+  #main {
+    padding: 20px;
 
-    padding: 5px;
-    border-radius: 50% 50%;
-    border-style: solid;
-    border-width: 0px;
+    img {
+      height: auto;
+      width: 20%;
 
-    border-color: #b0ffd1;
-    transition: padding .5s, border-width .5s;
+      border-radius: 50% 50%;
+      border-style: solid;
+      border-width: 2.5px;
 
-    &:hover:not(.focus) {
-      padding: 0px;
-      border-width: 5px;
-      transition: padding .5s, border-width .5s;
+      border-color: #055f2b;
+      transition: all 1s;
     }
-  }
 
-  svg {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    transform: rotate(-90deg);
-
-    circle {
-      fill: transparent;
+    svg {
+      display: none;
     }
-  }
-  img.focus + svg circle {
-    stroke: #055f2b;
-    stroke-width: 10px;
-    animation: circle 1s;
-  }
-  @keyframes circle {
-    0% { stroke-dasharray: 0 360; }
-    99.9%,to { stroke-dasharray: 360 360; }
+
+    ul {
+      padding-left: 20px;
+      li {
+        list-style: none;
+        opacity: 100;
+        transition: opacity .2s 1s;
+      }
+    }
   }
 }
