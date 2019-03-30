@@ -20,11 +20,12 @@ body {
 
   #main {
     position: relative;
-    width: 40%;
+    height: 40%;
+    text-align: center;
 
     img {
-      height: auto;
-      width: 100%;
+      height: 100%;
+      width: auto;
 
       padding: 5px;
       border-radius: 50% 50%;
@@ -46,6 +47,8 @@ body {
       z-index: -1;
       top: 0;
       left: 0;
+      height: 100%;
+      width: 100%;
       transform: rotate(-90deg);
 
       circle {
@@ -96,11 +99,49 @@ body {
     }
 
     ul {
-      padding-left: 20px;
+      overflow: hidden;
+      background: #dddddd;
+      transition: background .2s 1s;
+
       li {
+        color: #00422d;
+        font-size: 1.3rem;
+        margin-bottom: 3px;
         list-style: none;
         opacity: 100;
         transition: opacity .2s 1s;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 0;
+          border-bottom-style: solid;
+          border-bottom-width: 2px;
+          border-bottom-color: #055f2b;
+          transition: width .3s;
+        }
+        &:hover:after {
+          width: 100%;
+          transition: width .3s;
+        }
+      }
+    }
+
+    &.open {
+      ul {
+        padding: 5px 20px;
+        margin: 8px 4px;
+        max-height: 999999px; // a big number
+        transition: padding .2s, margin .2s, max-height .2s;
+      }
+    }
+
+    &:not(.open) {
+      ul {
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        transition: padding .2s, margin .2s, max-height .2s;
       }
     }
   }
