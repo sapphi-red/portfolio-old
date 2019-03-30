@@ -104,12 +104,16 @@ body {
       transition: background .2s 1s;
 
       li {
-        color: #00422d;
-        font-size: 1.3rem;
         margin-bottom: 3px;
         list-style: none;
         opacity: 100;
         transition: opacity .2s 1s;
+
+        a {
+          color: #00422d;
+          text-decoration: none;
+          font-size: 1.3rem;
+        }
 
         &:after {
           content: "";
