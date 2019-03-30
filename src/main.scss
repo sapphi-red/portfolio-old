@@ -20,6 +20,7 @@ body {
 }
 
 #main {
+  position: relative;
   width: 40%;
 
   img {
@@ -30,17 +31,35 @@ body {
     border-radius: 50% 50%;
     border-style: solid;
     border-width: 0px;
-    border-color: green;
 
-    &:hover {
+    border-color: green;
+    transition: padding 1s, border-width 1s;
+
+    &:hover:not(.focus) {
       padding: 0px;
       border-width: 5px;
       transition: padding 1s, border-width 1s;
     }
+  }
 
-    &.focus {
-      border-color: black;
-      border-width: 5px;
+  svg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg);
+
+    circle {
+      fill: transparent;
     }
+  }
+  img.focus + svg circle {
+    stroke: black;
+    stroke-width: 10px;
+    animation: circle 1s;
+  }
+  @keyframes circle {
+    0% { stroke-dasharray: 0 360; }
+    99.9%,to { stroke-dasharray: 360 360; }
   }
 }
