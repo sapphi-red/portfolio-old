@@ -1,0 +1,20 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+#main {
+  border-radius: 50% 50%;
+  border-style: solid;
+  border-width: 0px;
+  border-color: green;
+}
+
+#main:hover {
+  border-width: 5px;
+  transition: border-width 1s;
+}
