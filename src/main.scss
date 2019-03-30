@@ -79,6 +79,10 @@ body {
   display: flex;
   flex-direction: row;
 
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+
   #main {
     padding: 20px;
 
@@ -100,7 +104,7 @@ body {
 
     ul {
       overflow: hidden;
-      background: #dddddd;
+      background: #eeeeee;
       transition: background .2s 1s;
 
       li {
@@ -148,5 +152,16 @@ body {
         transition: padding .2s, margin .2s, max-height .2s;
       }
     }
+  }
+}
+
+#content {
+  flex-grow: 1;
+  margin: 30px 30px 30px 10px;
+  padding: 10px 20px;
+  background: #eeeeee;
+
+  @media (max-width: 700px) {
+    margin: 0 20px 20px 20px;
   }
 }
