@@ -145,6 +145,7 @@ body {
     }
 
     ul {
+      user-select: none;
       overflow: hidden;
       background: #eeeeee;
       transition: background .2s 1s;
