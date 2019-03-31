@@ -51,13 +51,13 @@ body {
     animation: glow 5s infinite 3s;
 
     @keyframes glow {
-      30% {
+      0% {
         filter: brightness(100%) contrast(100%);
       }
-      50% {
+      20% {
         filter: brightness(110%) contrast(120%);
       }
-      70% {
+      40% {
         filter: brightness(100%) contrast(100%);
       }
     }
