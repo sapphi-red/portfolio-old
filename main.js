@@ -33,6 +33,10 @@ if (location.pathname === "/") {
     $mainImg.addEventListener("mouseup", onMouseUp, { once: true });
   };
   $mainImg.addEventListener("mousedown", onMousedown);
+
+  $mainImg.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+  });
 } else {
   menu = true;
 }

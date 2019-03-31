@@ -17,21 +17,43 @@ body {
   align-items: center; }
   #container.start #main {
     position: relative;
+    text-align: center;
     height: 40%;
-    text-align: center; }
+    width: auto; }
+    @media (max-aspect-ratio: 2 / 5) {
+      #container.start #main {
+        height: auto;
+        width: 40%; } }
     #container.start #main img {
       height: 100%;
       width: auto;
-      padding: 5px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-touch-callout: none;
+      vertical-align: middle;
       border-radius: 50% 50%;
       border-style: solid;
+      padding: 5px;
       border-width: 0px;
       border-color: #b0ffd1;
-      transition: padding .5s, border-width .5s; }
+      transition: padding .5s, border-width .5s;
+      animation: glow 5s infinite 3s; }
+      @media (max-aspect-ratio: 2 / 5) {
+        #container.start #main img {
+          height: auto;
+          width: 100%; } }
       #container.start #main img:hover:not(.focus) {
         padding: 0px;
         border-width: 5px;
         transition: padding .5s, border-width .5s; }
+
+@keyframes glow {
+  30% {
+    filter: brightness(100%) contrast(100%); }
+  50% {
+    filter: brightness(110%) contrast(120%); }
+  70% {
+    filter: brightness(100%) contrast(100%); } }
     #container.start #main svg {
       position: absolute;
       z-index: -1;
@@ -53,7 +75,10 @@ body {
   99.9%, to {
     stroke-dasharray: 360 360; } }
     #container.start #main ul {
+      width: 0;
       height: 0;
+      margin: 0;
+      padding: 0;
       overflow: hidden; }
       #container.start #main ul li {
         opacity: 0; }
@@ -69,11 +94,14 @@ body {
     #container.menu #main img {
       height: auto;
       width: 20%;
+      cursor: pointer;
       border-radius: 50% 50%;
       border-style: solid;
       border-width: 2.5px;
       border-color: #055f2b;
       transition: all 1s; }
+      #container.menu #main img:hover {
+        border-color: #b0ffd1; }
     #container.menu #main svg {
       display: none; }
     #container.menu #main ul {
@@ -142,11 +170,23 @@ body {
 
 #footer {
   position: fixed;
-  width: 100%;
   bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
   background: #343434;
   color: #eeeeee; }
   #footer p {
     margin: 0;
     padding: 5px 10px;
     font-size: 0.7em; }
+  #footer .copyright {
+    flex-grow: 1;
+    flex-shrink: 0; }
+  #footer .source {
+    flex-grow: 1;
+    text-align: right; }
+    #footer .source a {
+      color: inherit; }
