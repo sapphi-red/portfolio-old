@@ -26,7 +26,7 @@ const options = {
 const html = () => {
   return (
     gulp
-      .src(paths.pug, { since: gulp.lastRun(html) })
+      .src(paths.pug)
       .pipe(plumber())
       .pipe(pug(options.pug))
       .pipe(gulp.dest(paths.output))
