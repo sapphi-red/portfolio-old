@@ -16,6 +16,7 @@ const paths = {
 const options = {
   pug: {
     basedir: "./src",
+    pretty: true,
   },
   sass: {
     output: "expanded",
