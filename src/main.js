@@ -1,5 +1,6 @@
 const $container = document.querySelector("#container");
 const $main = document.querySelector("#main");
+const $mainImg = $main.querySelector("img");
 
 let menu = false;
 
@@ -68,7 +69,7 @@ if (location.pathname === "/") {
   menu = true;
 }
 
-$main.addEventListener("click", () => {
+$mainImg.addEventListener("click", () => {
   if (!menu) return;
 
   $main.classList.toggle("open");
