@@ -122,6 +122,7 @@ body {
 
   #main {
     padding: 20px;
+    user-select: none;
 
     img {
       height: auto;
@@ -145,7 +146,6 @@ body {
     }
 
     ul {
-      user-select: none;
       overflow: hidden;
       background: #eeeeee;
       transition: background .2s 1s;
