@@ -58,6 +58,7 @@ if (location.pathname === "/") {
         $container.classList.replace("start", "menu");
         $main.removeEventListener("touchstart", onTouchStart);
         menu = true;
+        $main.classList.add("open");
       };
       $main.addEventListener("touchend", onTouchEnd, { once: true });
     };
