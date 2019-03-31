@@ -23,7 +23,6 @@ body {
     cursor: pointer;
     user-select: none;
     -webkit-touch-callout: none;
-    clip-path: circle();
     padding: 10px;
     border-width: 0px;
     border-radius: 50% 50%;
@@ -51,7 +50,7 @@ body {
       height: 100%;
       width: auto;
       vertical-align: middle;
-      clip-path: circle();
+      border-radius: 50% 50%;
       pointer-events: none; }
       @media (max-aspect-ratio: 2 / 5) {
         #container.start #main img {
