@@ -3,6 +3,7 @@ const plumber = require("gulp-plumber");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
 const browserSync = require("browser-sync");
+const del = require("del");
 
 const paths = {
   pug: ["./src/**/*.pug", "!./src/**/_*.pug"],
@@ -71,16 +72,22 @@ exports.watch = gulp.parallel( () => {
     browserSync({
       server: { baseDir: paths.output }
     });
-    gulp.watch(`${paths.output}`, gulp.task("reload"));
+    gulp.watch(`${paths.output}`, gulp.task(reload));
   }, () => {
-    gulp.watch(paths.pug, gulp.task("html"));
-    gulp.watch(paths.sass, gulp.task("css"));
-    gulp.watch(paths.js, gulp.task("js"));
-    gulp.watch(paths.img, gulp.task("img"));
+    gulp.watch(paths.pug, gulp.task(html));
+    gulp.watch(paths.sass, gulp.task(css));
+    gulp.watch(paths.js, gulp.task(js));
+    gulp.watch(paths.img, gulp.task(img));
   }
 );
 
-exports.reload = (done) => {
+const reload = (done) => {
   browserSync.reload();
   done();
+};
+
+exports.clean = () => {
+  return del([
+    paths.output
+  ]);
 };
