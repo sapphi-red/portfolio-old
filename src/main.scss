@@ -53,6 +53,20 @@ body {
         border-width: 5px;
         transition: padding .5s, border-width .5s;
       }
+
+      animation: glow 5s infinite 3s;
+
+      @keyframes glow {
+        30% {
+          filter: brightness(100%) contrast(100%);
+        }
+        50% {
+          filter: brightness(110%) contrast(120%);
+        }
+        70% {
+          filter: brightness(100%) contrast(100%);
+        }
+      }
     }
 
     svg {
