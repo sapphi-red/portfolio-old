@@ -26,6 +26,7 @@ gulp.task("html", () => {
   return (
     gulp
       .src(paths.pug)
+      .pipe(plumber())
       .pipe(pug(options.pug))
       .pipe(gulp.dest(paths.output))
   );
@@ -35,6 +36,7 @@ gulp.task("css", () => {
   return (
     gulp
       .src(paths.sass)
+      .pipe(plumber())
       .pipe(sass(options.sass))
       .pipe(gulp.dest(paths.output))
   );
@@ -44,6 +46,7 @@ gulp.task("js", () => {
   return (
     gulp
       .src(paths.js)
+      .pipe(plumber())
       .pipe(gulp.dest(paths.output))
   )
 });
@@ -52,6 +55,7 @@ gulp.task("img", () => {
   return (
     gulp
       .src(paths.img)
+      .pipe(plumber())
       .pipe(gulp.dest(`${paths.output}/img`))
   )
 });
