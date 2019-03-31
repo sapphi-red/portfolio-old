@@ -20,16 +20,28 @@ body {
 
   #main {
     position: relative;
-    height: 40%;
     text-align: center;
+
+    height: 40%;
+    width: auto;
+    @media (max-aspect-ratio: 2/5) {
+      height: auto;
+      width: 40%;
+    }
 
     img {
       height: 100%;
       width: auto;
+      @media (max-aspect-ratio: 2/5) {
+        height: auto;
+        width: 100%;
+      }
 
-      padding: 5px;
+      vertical-align: middle;
       border-radius: 50% 50%;
       border-style: solid;
+
+      padding: 5px;
       border-width: 0px;
 
       border-color: #b0ffd1;
@@ -66,7 +78,10 @@ body {
     }
 
     ul {
+      width: 0;
       height: 0;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
       li {
         opacity: 0;
