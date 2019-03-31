@@ -29,6 +29,38 @@ body {
       width: 40%;
     }
 
+    cursor: pointer;
+    user-select: none;
+    -webkit-touch-callout: none;
+    padding: 10px;
+    border-width: 0px;
+
+    border-radius: 50% 50%;
+    border-style: solid;
+
+    border-color: #b0ffd1;
+    transition: padding .5s, border-width .5s;
+
+    &:hover:not(.focus) {
+      padding: 5px;
+      border-width: 5px;
+      transition: padding .5s, border-width .5s;
+    }
+
+    animation: glow 5s infinite 3s;
+
+    @keyframes glow {
+      30% {
+        filter: brightness(100%) contrast(100%);
+      }
+      50% {
+        filter: brightness(110%) contrast(120%);
+      }
+      70% {
+        filter: brightness(100%) contrast(100%);
+      }
+    }
+
     img {
       height: 100%;
       width: auto;
@@ -36,39 +68,9 @@ body {
         height: auto;
         width: 100%;
       }
-
-      cursor: pointer;
-      user-select: none;
-      -webkit-touch-callout: none;
       vertical-align: middle;
-      border-radius: 50% 50%;
-      border-style: solid;
-
-      padding: 5px;
-      border-width: 0px;
-
-      border-color: #b0ffd1;
-      transition: padding .5s, border-width .5s;
-
-      &:hover:not(.focus) {
-        padding: 0px;
-        border-width: 5px;
-        transition: padding .5s, border-width .5s;
-      }
-
-      animation: glow 5s infinite 3s;
-
-      @keyframes glow {
-        30% {
-          filter: brightness(100%) contrast(100%);
-        }
-        50% {
-          filter: brightness(110%) contrast(120%);
-        }
-        70% {
-          filter: brightness(100%) contrast(100%);
-        }
-      }
+      clip-path: circle();
+      pointer-events: none;
     }
 
     svg {
@@ -84,14 +86,16 @@ body {
         fill: transparent;
       }
     }
-    img.focus + svg circle {
-      stroke: #055f2b;
-      stroke-width: 10px;
-      animation: circle 1s;
-    }
-    @keyframes circle {
-      0% { stroke-dasharray: 0 360; }
-      99.9%,to { stroke-dasharray: 360 360; }
+    &.focus {
+      svg circle {
+        stroke: #055f2b;
+        stroke-width: 5px;
+        animation: circle 1s;
+      }
+      @keyframes circle {
+        0% { stroke-dasharray: 0 360; }
+        99.9%,to { stroke-dasharray: 360 360; }
+      }
     }
 
     ul {
