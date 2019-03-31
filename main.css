@@ -92,7 +92,8 @@ body {
     #container.menu {
       flex-direction: column; } }
   #container.menu #main {
-    padding: 20px; }
+    padding: 20px;
+    user-select: none; }
     #container.menu #main img {
       height: auto;
       width: 20%;
@@ -107,7 +108,6 @@ body {
     #container.menu #main svg {
       display: none; }
     #container.menu #main ul {
-      user-select: none;
       overflow: hidden;
       background: #eeeeee;
       transition: background .2s 1s; }
