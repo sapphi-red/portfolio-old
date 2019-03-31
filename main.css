@@ -19,33 +19,26 @@ body {
     position: relative;
     text-align: center;
     height: 40%;
-    width: auto; }
+    width: auto;
+    cursor: pointer;
+    user-select: none;
+    -webkit-touch-callout: none;
+    clip-path: circle();
+    padding: 10px;
+    border-width: 0px;
+    border-radius: 50% 50%;
+    border-style: solid;
+    border-color: #b0ffd1;
+    transition: padding .5s, border-width .5s;
+    animation: glow 5s infinite 3s; }
     @media (max-aspect-ratio: 2 / 5) {
       #container.start #main {
         height: auto;
         width: 40%; } }
-    #container.start #main img {
-      height: 100%;
-      width: auto;
-      cursor: pointer;
-      user-select: none;
-      -webkit-touch-callout: none;
-      vertical-align: middle;
-      border-radius: 50% 50%;
-      border-style: solid;
+    #container.start #main:hover:not(.focus) {
       padding: 5px;
-      border-width: 0px;
-      border-color: #b0ffd1;
-      transition: padding .5s, border-width .5s;
-      animation: glow 5s infinite 3s; }
-      @media (max-aspect-ratio: 2 / 5) {
-        #container.start #main img {
-          height: auto;
-          width: 100%; } }
-      #container.start #main img:hover:not(.focus) {
-        padding: 0px;
-        border-width: 5px;
-        transition: padding .5s, border-width .5s; }
+      border-width: 5px;
+      transition: padding .5s, border-width .5s; }
 
 @keyframes glow {
   30% {
@@ -54,6 +47,16 @@ body {
     filter: brightness(110%) contrast(120%); }
   70% {
     filter: brightness(100%) contrast(100%); } }
+    #container.start #main img {
+      height: 100%;
+      width: auto;
+      vertical-align: middle;
+      clip-path: circle();
+      pointer-events: none; }
+      @media (max-aspect-ratio: 2 / 5) {
+        #container.start #main img {
+          height: auto;
+          width: 100%; } }
     #container.start #main svg {
       position: absolute;
       z-index: -1;
@@ -64,9 +67,9 @@ body {
       transform: rotate(-90deg); }
       #container.start #main svg circle {
         fill: transparent; }
-    #container.start #main img.focus + svg circle {
+    #container.start #main.focus svg circle {
       stroke: #055f2b;
-      stroke-width: 10px;
+      stroke-width: 5px;
       animation: circle 1s; }
 
 @keyframes circle {
