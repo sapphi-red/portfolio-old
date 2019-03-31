@@ -31,6 +31,7 @@ if (location.pathname === "/") {
         $container.classList.replace("start", "menu");
         $main.removeEventListener("mousedown", onMousedown);
         menu = true;
+        $main.classList.add("open");
       };
       $main.addEventListener("mouseup", onMouseUp, { once: true });
     };
