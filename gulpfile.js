@@ -23,47 +23,51 @@ const options = {
   },
 };
 
-gulp.task("html", () => {
+const html = () => {
   return (
     gulp
-      .src(paths.pug)
+      .src(paths.pug, { since: gulp.lastRun(html) })
       .pipe(plumber())
       .pipe(pug(options.pug))
       .pipe(gulp.dest(paths.output))
   );
-});
+};
+exports.html = html;
 
-gulp.task("css", () => {
+const css = () => {
   return (
     gulp
-      .src(paths.sass)
+      .src(paths.sass, { since: gulp.lastRun(css) })
       .pipe(plumber())
       .pipe(sass(options.sass))
       .pipe(gulp.dest(paths.output))
   );
-});
+};
+exports.css = css;
 
-gulp.task("js", () => {
+const js = () => {
   return (
     gulp
-      .src(paths.js)
+      .src(paths.js, { since: gulp.lastRun(js) })
       .pipe(plumber())
       .pipe(gulp.dest(paths.output))
   )
-});
+};
+exports.js = js;
 
-gulp.task("img", () => {
+const img = () => {
   return (
     gulp
-      .src(paths.img)
+      .src(paths.img, { since: gulp.lastRun(img) })
       .pipe(plumber())
       .pipe(gulp.dest(`${paths.output}/img`))
   )
-});
+};
+exports.img = img;
 
-gulp.task("default", gulp.parallel("html", "css", "js", "img"));
+exports.default = gulp.parallel(html, css, js, img);
 
-gulp.task("watch", gulp.parallel( () => {
+exports.watch = gulp.parallel( () => {
     browserSync({
       server: { baseDir: paths.output }
     });
@@ -74,9 +78,9 @@ gulp.task("watch", gulp.parallel( () => {
     gulp.watch(paths.js, gulp.task("js"));
     gulp.watch(paths.img, gulp.task("img"));
   }
-));
+);
 
-gulp.task("reload", (done) => {
+exports.reload = (done) => {
   browserSync.reload();
   done();
-});
+};
