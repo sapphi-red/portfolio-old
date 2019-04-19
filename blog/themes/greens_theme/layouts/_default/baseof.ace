@@ -1,0 +1,21 @@
+= doctype html
+html lang=ja
+  head
+    meta charset=utf-8
+    meta name=viewport content="width=device-width, initial-scale=1"
+
+    = yield title
+
+    / ogp
+
+    = include partials/imports.html
+
+    / rss
+
+  body
+    #container.menu
+      #main
+        = include partials/menu.html
+      #content.blog
+        = yield main
+    = include partials/footer.html

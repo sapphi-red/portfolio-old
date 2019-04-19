@@ -1,0 +1,12 @@
+name = "Greens_theme"
+license = "MIT"
+licenselink = "https://github.com/sapphi-red/portfolio/blob/master/blog/themes/LICENSE"
+description = ""
+homepage = "https://green.sapphi.red/"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "green"
+  homepage = "https://green.sapphi.red/"

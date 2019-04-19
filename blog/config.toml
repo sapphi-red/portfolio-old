@@ -1,0 +1,4 @@
+baseURL = "https://green.sapphi.red/blog/"
+languageCode = "ja-jp"
+title = "green.sapphi.red"
+theme = "greens_theme"

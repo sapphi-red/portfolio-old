@@ -1,0 +1,8 @@
+img src="https://green.sapphi.red/img/icon.png"
+ul
+  li
+    a href="/introduction/" Introduction
+  / li
+  /   a(href="/works/") Works
+  li
+     a href="/links/" Links

@@ -1,0 +1,12 @@
+= content title
+  title {{ .Site.Title }}
+
+= content main
+  h1 {{ .Site.Title }}
+  p this is a test
+  ul
+    {{ range .Data.Pages }}
+      li
+        a href="{{ .RelPermalink }}" {{ .Title }}
+        | ({{ .Date.Format "2006/01/02" }})
+    {{ end }}

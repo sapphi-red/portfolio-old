@@ -1,0 +1,6 @@
+= content title
+  title {{ .Title }} | {{ .Site.Title }}
+
+= content main
+  h1 {{ .Title }} | {{ .Site.Title }}
+  p {{ .Content }}
