@@ -156,7 +156,7 @@ body {
     border: solid 1px #888888;
     padding: 0 20px;
     margin: 20px 0; }
-  #content.blog .article div {
+  #content.blog .article .block {
     border: solid 1px #888888;
     padding: 0 20px;
     margin: 20px 0; }
@@ -173,27 +173,31 @@ body {
   #content li:before {
     content: "☘ ";
     color: green; }
-  #content.blog {
+  #content.blog .article {
     padding: 20px 0; }
-    #content.blog #info .date {
-      text-align: right;
-      margin: 0; }
-    #content.blog #info .tags {
+    #content.blog .article .highlight {
+      margin: 5px 20px; }
+  #content.blog #info .date {
+    text-align: right;
+    margin: 0; }
+  #content.blog #info .tags {
+    text-align: right; }
+  #content.blog #prevnext {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    #content.blog #prevnext p {
+      flex-grow: 1;
+      margin: 0;
+      word-break: break-word; }
+    #content.blog #prevnext .prev {
+      text-align: left; }
+      #content.blog #prevnext .prev::before {
+        content: "<<"; }
+    #content.blog #prevnext .next {
       text-align: right; }
-    #content.blog #prevnext {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap; }
-      #content.blog #prevnext p {
-        flex-grow: 1;
-        margin: 0;
-        word-break: break-word; }
-        #content.blog #prevnext p::before {
-          content: "<<"; }
-      #content.blog #prevnext .prev {
-        text-align: left; }
-      #content.blog #prevnext .next {
-        text-align: right; }
+      #content.blog #prevnext .next::before {
+        content: ">>"; }
   #content.links ul img {
     height: 1.2em;
     vertical-align: middle;
