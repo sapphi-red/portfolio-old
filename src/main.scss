@@ -250,6 +250,15 @@ body {
           padding: 5px;
         }
       }
+
+      figure.responsive {
+        margin: 5px;
+        text-align: center;
+        img {
+          width: 100%;
+          max-width: 500px;
+        }
+      }
     }
 
     .tag-list {
