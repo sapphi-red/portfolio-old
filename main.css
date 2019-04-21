@@ -152,10 +152,17 @@ body {
   @media (max-width: 700px) {
     #content {
       margin: 0 20px 20px 20px; } }
-  #content div {
+  #content:not(.blog) div {
     border: solid 1px #888888;
     padding: 0 20px;
     margin: 20px 0; }
+  #content.blog .article div {
+    border: solid 1px #888888;
+    padding: 0 20px;
+    margin: 20px 0; }
+  #content hr {
+    background-color: #fff;
+    border-top: 2px dotted #8c8b8b; }
   #content ul {
     list-style: none;
     padding: 0;
@@ -166,6 +173,27 @@ body {
   #content li:before {
     content: "☘ ";
     color: green; }
+  #content.blog {
+    padding: 20px 0; }
+    #content.blog #info .date {
+      text-align: right;
+      margin: 0; }
+    #content.blog #info .tags {
+      text-align: right; }
+    #content.blog #prevnext {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      #content.blog #prevnext p {
+        flex-grow: 1;
+        margin: 0;
+        word-break: break-word; }
+        #content.blog #prevnext p::before {
+          content: "<<"; }
+      #content.blog #prevnext .prev {
+        text-align: left; }
+      #content.blog #prevnext .next {
+        text-align: right; }
   #content.links ul img {
     height: 1.2em;
     vertical-align: middle;
