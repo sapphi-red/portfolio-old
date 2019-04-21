@@ -20,6 +20,5 @@
   .tag-list
     {{ range .Site.Taxonomies.tags }}
       .tag
-        a href={{ .Page.Permalink }} {{ .Page.Title }}
-        |  ({{ .Count }})
+        a href={{ .Page.Permalink }} {{ .Page.Title }}  ({{ .Count }})
     {{ end }}
