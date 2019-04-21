@@ -1,0 +1,9 @@
+{{ with .Site.RegularPages.Related . }}
+#related
+  h3 See Also
+  ul
+    {{ range first 5 . }}
+    li
+      a href="{{ .RelPermalink }}" {{ .Title }}
+    {{ end }}
+{{ end }}

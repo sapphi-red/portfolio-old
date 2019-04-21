@@ -1,4 +1,19 @@
-baseURL = "https://green.sapphi.red/blog/"
+BaseURL = "https://green.sapphi.red/blog/"
 languageCode = "ja-jp"
-title = "green.sapphi.red"
-theme = "greens_theme"
+title = "翡翠置き場"
+hasCJKLanguage = true
+paginate = 15
+
+[blackfriday]
+  extensionsmask = [
+    "backslashLineBreak"
+  ]
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  taxonomyTerm = ["HTML", "RSS"]
+  taxonomy = ["HTML"]

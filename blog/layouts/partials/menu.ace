@@ -2,6 +2,8 @@ img src="https://green.sapphi.red/img/icon.png"
 ul
   li
     a href="/introduction/" Introduction
+  li
+    a href="/blog/" Blog
   / li
   /   a(href="/works/") Works
   li

@@ -1,0 +1,17 @@
+= content title
+  title {{ .Title }} | {{ .Site.Title }}
+
+= content imports
+  {{ range .AlternativeOutputFormats }}
+  link rel={{ .Rel }} type={{ .MediaType.Type }} href={{ .Permalink | safeURL }}
+  {{ end }}
+
+= content main
+  h1 {{ .Title }}
+  {{ template "_internal/pagination.html" . }}
+  {{ range .Paginator.Pages }}
+    li
+      a href={{ .RelPermalink }} {{ .Title }}
+      | ({{ .Date.Format "2006/01/02" }})
+  {{ end }}
+  {{ template "_internal/pagination.html" . }}

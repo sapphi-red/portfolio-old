@@ -210,10 +210,20 @@ body {
     margin: 0 20px 20px 20px;
   }
 
-  div {
+  &:not(.blog) div {
     border: solid 1px #888888;
     padding: 0 20px;
     margin: 20px 0;
+  }
+  &.blog .article div {
+    border: solid 1px #888888;
+    padding: 0 20px;
+    margin: 20px 0;
+  }
+
+  hr {
+    background-color: #fff;
+    border-top: 2px dotted #8c8b8b;
   }
 
   ul {
@@ -228,6 +238,42 @@ body {
   li:before {
     content: "☘ ";
     color: green;
+  }
+
+  &.blog {
+    padding: 20px 0;
+
+    #info {
+      .date {
+        text-align: right;
+        margin: 0;
+      }
+      .tags {
+        text-align: right;
+      }
+    }
+
+    #prevnext {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      p {
+        flex-grow: 1;
+        margin: 0;
+        word-break: break-word;
+        &::before {
+          content: "<<"
+        }
+      }
+
+      .prev {
+        text-align: left;
+      }
+      .next {
+        text-align: right;
+      }
+    }
   }
 
   &.links {

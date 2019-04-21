@@ -1,6 +1,10 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "記事名"
+slug: "{{ replace .Name "-" " " | title }}"
+description: "説明"
 date: {{ .Date }}
-draft: true
+tags: ["タグ"]
+use_tex: false
 ---
 
+内容

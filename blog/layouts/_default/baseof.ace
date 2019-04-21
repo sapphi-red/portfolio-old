@@ -10,6 +10,8 @@ html lang=ja
 
     = include partials/imports.html
 
+    = yield imports
+
     / rss
 
   body
@@ -17,5 +19,11 @@ html lang=ja
       #main
         = include partials/menu.html
       #content.blog
-        = yield main
+        .info
+          = yield info
+        .article
+          = yield main
+        hr
+        = yield sub
     = include partials/footer.html
+    = yield last

@@ -1,0 +1,14 @@
+= content title
+  title {{ .Site.Title }}
+
+= content main
+  h1 {{ .Site.Title }}
+  p 140字超えてたり数式あるようなものをいろいろ書いてくブログ。
+  {{ template "_internal/pagination.html" . }}
+  ul
+    {{ range .Paginator.Pages }}
+      li
+        a href={{ .RelPermalink }} {{ .Title }}
+        | ({{ .Date.Format "2006/01/02" }})
+    {{ end }}
+  {{ template "_internal/pagination.html" . }}
