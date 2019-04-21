@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CPCTF2019のWriteup的なもの | 翡翠置き場</title><link rel="icon" type="image/png" href="https://green.sapphi.red/img/icon.png"><link rel="stylesheet" href="https://green.sapphi.red/main.css"><script src="https://green.sapphi.red/main.js" defer></script><link rel="stylesheet" href="/blog/css/syntax.css"><meta name="description" content="まえがき CPCTF2019というtraPの新歓イベントに参加しました。 CTPと競プロを混ぜたみたいなものみたいです。 1位でした✌ お疲れさまで"><meta property="og:title" content="CPCTF2019のWriteup的なもの"><meta property="og:description" content="まえがき CPCTF2019というtraPの新歓イベントに参加しました。 CTPと競プロを混ぜたみたいなものみたいです。 1位でした✌ お疲れさまで"><meta property="og:url" content="https://green.sapphi.red/blog/cpctf2019/"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@sapphi_red"><meta name="og:img" content="https://green.sapphi.red/img/icon.png"></head><body><div id="container" class="menu"><div id="main"><img src="https://green.sapphi.red/img/icon.png"><ul><li><a href="/introduction/">Introduction</a></li><li><a href="/blog/">Blog</a></li><li><a href="/links/">Links</a></li></ul></div><div id="content" class="blog"><div id="info"><h1>CPCTF2019のWriteup的なもの</h1><p class="date">2019-04-21</p><div class="tag-list"><div class="tag"><a href="/blog/tags/CTF/">CTF</a></div></div></div><hr><div class="article"><p>
+
+<h2 id="まえがき">まえがき</h2>
+
+<p><a href="https://cpctf.space/">CPCTF2019</a>というtraPの新歓イベントに参加しました。<br />
+CTPと競プロを混ぜたみたいなものみたいです。</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1位でした✌<br>お疲れさまでした<br> <a href="https://twitter.com/hashtag/CPCTF?src=hash&amp;ref_src=twsrc%5Etfw">#CPCTF</a> <a href="https://t.co/bKl3I3semQ">pic.twitter.com/bKl3I3semQ</a></p>&mdash; 翠゜(みどり) (@sapphi_red) <a href="https://twitter.com/sapphi_red/status/1118465776871034881?ref_src=twsrc%5Etfw">April 17, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>1位だったのでWriteupみたいなものを書こうかなと思います。(とは言ってもそこまでかけない…)
+解けたもののうちSolvedが少なくて書けそうなものを書きます。(備忘録程度に)</p>
+
+<h2 id="password-c4-300">Password: C4 (300)</h2>
+
+<p><a href="https://cpctf.space/challenges/6f3c8a4e-83c8-427d-a69a-b1394dc5ad51?hide=true">問題</a><br />
+<figure class="responsive">
+    <img src="/blog/imgs/2019-04-21-21-50-50.png"/> 
+</figure>
+
+ブラウザの開発者ツールを開くとwasmを呼び出しているのがわかるので、wasmを保存して中をバイナリエディターで開いて<code>FLAG</code>あたりで文字列検索をかけてみます。</p>
+
+<blockquote>
+<p><strong>wasmについての補足</strong><br />
+通常、ブラウザ上ではHTMLが読み込まれ、デザインを指定するCSSや動的な処理を行うJavascriptが読み込まれます。しかしながら、SPA(Single Page Application)やPWA(Progressive Web Apps)などのようにブラウザ上で多量の動的な処理を行うが出てきたことにより、Javascriptのパース時間や(JIT)コンパイル時間がネックとなりました。そこで、ブラウザ上でコンパイル済みのものをそのまま載せようとしてできたのがwasm(WebAssembly)というものです。</p>
+</blockquote>
+
+<h2 id="password-c5-400">Password: C5 (400)</h2>
+
+<p><a href="https://cpctf.space/challenges/fc499694-d5d7-4aec-88d1-9b254d174c80?hide=true">問題</a><br />
+<figure class="responsive">
+    <img src="/blog/imgs/2019-04-21-22-19-23.png"/> 
+</figure>
+
+開発者ツールを開いても実行されているコードが見当たらないので、<code>go</code>のボタンに登録されているイベントを確認してみます。すると、<code>VM18:7</code>にコードが存在するようなので(どのように動いているかはわからないです…)そこをクリックすると実行されている関連コードが表示されます。</p>
+
+<h2 id="deleted-flag-200">deleted flag (200)</h2>
+
+<p><a href="https://cpctf.space/challenges/86db500d-07ec-4b59-a142-0cac6ca8db08">問題</a><br />
+問題にあるzipファイルを解凍すると(隠しファイルを表示する設定にしているなら)<code>.git</code>フォルダーが存在するので、タイトルのdeletedというところからgitの履歴のどこかに存在するのだろうなと推測します。<code>git reflog</code>を知っていればすぐなのですが、もし知らないなら<code>git 消す</code>や<code>git 戻す</code>あたりでググると出てくるかもしれません。</p>
+
+<h2 id="undo-300">Undo (300)</h2>
+
+<p><a href="https://cpctf.space/challenges/6c5ac265-bd74-4e68-b0ca-d649de67643d">問題</a><br />
+ファイル一覧を見たいですがlinux(ubuntu)なのでwindowsとはコマンドが違うので同じ動作をするコマンドをググります(覚えていない並感)。そうすると、<code>ls</code>というコマンドみたいなので実行してみます。しかし空っぽの<code>flag.txt</code>しか見つかりません。タイトルからおそらくアンドゥ機能を使うので、linux自体に存在するかググってみます。linuxにはないみたいですが、検索結果に<code>vi undo redo</code>のようなものが見つかります。<code>vim</code>(<code>vi</code>の進化形みたいなものでテキストエディターの1つ)のアンドゥ機能を試してみます。</p>
+
+<h2 id="あとがき">あとがき</h2>
+
+<p>はじめてwriteupみたいなものを書いたので、まったく勝手がわかっていなくて変な感じになってるかもしれません…<br />
+Twitterでも書いたのですが、<a href="https://cpctf.space/challenges/6362fc68-3633-40dd-91b0-f8984459dbb9?hide=true"><code>veeeeeeery_long _text</code></a>のひっかけがかわいくてすきでした😆</p>
+</p></div><hr><script src="https://utteranc.es/client.js" repo="sapphi-red/blog-comments" issue-term="pathname" label="comments" theme="github-light" crossorigin="anonymous">async</script><div id="prevnext"><p class="prev"><a href="https://green.sapphi.red/blog/first_post/">最初の記事</a></p></div></div></div><div id="footer"><p class="copyright">(C) 翠 (green) 2019-</p><p class="source"><a href="https://github.com/sapphi-red/portfolio">View source</a></p></div></body></html>

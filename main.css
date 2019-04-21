@@ -179,6 +179,12 @@ body {
       margin: 5px 20px; }
       #content.blog .article .highlight .chroma {
         padding: 5px; }
+    #content.blog .article figure.responsive {
+      margin: 5px;
+      text-align: center; }
+      #content.blog .article figure.responsive img {
+        width: 100%;
+        max-width: 500px; }
   #content.blog .tag-list {
     display: flex;
     flex-wrap: wrap;
