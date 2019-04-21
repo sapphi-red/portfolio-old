@@ -177,6 +177,17 @@ body {
     padding: 20px 0; }
     #content.blog .article .highlight {
       margin: 5px 20px; }
+      #content.blog .article .highlight .choma {
+        padding: 5px; }
+  #content.blog .tag-list {
+    display: flex; }
+  #content.blog .tag {
+    margin: 5px;
+    background: #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #333333;
+    border-radius: 3px; }
   #content.blog #info .date {
     text-align: right;
     margin: 0; }
@@ -196,7 +207,7 @@ body {
         content: "<<"; }
     #content.blog #prevnext .next {
       text-align: right; }
-      #content.blog #prevnext .next::before {
+      #content.blog #prevnext .next::after {
         content: ">>"; }
   #content.links ul img {
     height: 1.2em;
