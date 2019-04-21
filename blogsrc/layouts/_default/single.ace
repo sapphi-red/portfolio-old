@@ -2,6 +2,8 @@
   title {{ .Title }} | {{ .Site.Title }}
 
 = content imports
+  link rel=stylesheet href=/blog/css/syntax.css
+
   {{ range .AlternativeOutputFormats }}
   link rel={{ .Rel }} type={{ .MediaType.Type }} href={{ .Permalink | safeURL }}
   {{ end }}

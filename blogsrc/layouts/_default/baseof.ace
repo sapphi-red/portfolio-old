@@ -19,7 +19,7 @@ html lang=ja
       #main
         = include partials/menu.html
       #content.blog
-        .info
+        #info
           = yield info
         .article
           = yield main

@@ -215,7 +215,7 @@ body {
     padding: 0 20px;
     margin: 20px 0;
   }
-  &.blog .article div {
+  &.blog .article .block {
     border: solid 1px #888888;
     padding: 0 20px;
     margin: 20px 0;
@@ -241,7 +241,13 @@ body {
   }
 
   &.blog {
-    padding: 20px 0;
+    .article {
+      padding: 20px 0;
+
+      .highlight {
+        margin: 5px 20px;
+      }
+    }
 
     #info {
       .date {
@@ -262,16 +268,19 @@ body {
         flex-grow: 1;
         margin: 0;
         word-break: break-word;
-        &::before {
-          content: "<<"
-        }
       }
 
       .prev {
         text-align: left;
+        &::before {
+          content: "<<"
+        }
       }
       .next {
         text-align: right;
+        &::before {
+          content: ">>"
+        }
       }
     }
   }

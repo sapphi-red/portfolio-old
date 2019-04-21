@@ -2,7 +2,11 @@ BaseURL = "https://green.sapphi.red/blog/"
 languageCode = "ja-jp"
 title = "翡翠置き場"
 hasCJKLanguage = true
+
 paginate = 15
+
+pygmentsUseClasses = true
+pygmentsCodefences = true
 
 [blackfriday]
   extensionsmask = [
