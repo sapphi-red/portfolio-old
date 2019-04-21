@@ -1,0 +1,7 @@
+meta name=description content={{ with .Summary }}{{.}}{{ else }}翠のブログ。{{ end }}
+meta property=og:title content={{ with .Title }}{{.}}{{ else }}{{$.Site.Title}}{{ end }}
+meta property=og:description content={{ with .Summary }}{{.}}{{ else }}翠のブログ。{{ end }}
+meta property=og:url content={{ .Permalink }}
+meta name=twitter:card content=summary
+meta name=twitter:site content=@sapphi_red
+meta name=og:img content=https://green.sapphi.red/img/icon.png

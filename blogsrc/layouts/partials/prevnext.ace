@@ -1,9 +1,9 @@
 #prevnext
-  p.prev
-    {{ with .PrevInSection }}
-      a href={{ .Permalink }} << {{ .LinkTitle }}
-    {{ end }}
-  p.next
-    {{ with .NextInSection }}
-      a href={{ .Permalink }} {{ .LinkTitle }} >>
-    {{ end }}
+  {{ with .PrevInSection }}
+    p.prev
+      a href={{ .Permalink }} {{ .LinkTitle }}
+  {{ end }}
+  {{ with .NextInSection }}
+    p.next
+      a href={{ .Permalink }} {{ .LinkTitle }}
+  {{ end }}

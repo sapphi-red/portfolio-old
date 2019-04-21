@@ -3,16 +3,10 @@ html lang=ja
   head
     meta charset=utf-8
     meta name=viewport content="width=device-width, initial-scale=1"
-
     = yield title
-
-    / ogp
-
-    = include partials/imports.html
-
+    = include partials/imports.html .
     = yield imports
-
-    / rss
+    = include partials/ogp.html .
 
   body
     #container.menu
@@ -21,6 +15,7 @@ html lang=ja
       #content.blog
         #info
           = yield info
+        hr
         .article
           = yield main
         hr

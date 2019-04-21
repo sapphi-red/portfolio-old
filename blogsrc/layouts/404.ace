@@ -1,8 +1,0 @@
-= content title
-  title Where was it gone? | {{ .Site.Title }}
-
-= content main
-  h1 404
-  p ここには何もないよ。
-  p
-    a href={{ "/blog/" }} トップに戻る

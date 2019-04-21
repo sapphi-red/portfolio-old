@@ -5,6 +5,6 @@ ul
   li
     a href="/blog/" Blog
   / li
-  /   a(href="/works/") Works
+  /   a href="/works/" Works
   li
      a href="/links/" Links

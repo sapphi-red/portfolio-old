@@ -1,3 +1,7 @@
 link rel="icon" type="image/png" href="https://green.sapphi.red/img/icon.png"
 link rel="stylesheet" href="https://green.sapphi.red/main.css"
 script src="https://green.sapphi.red/main.js" defer=
+
+{{ range .AlternativeOutputFormats }}
+  link rel={{ .Rel }} type={{ .MediaType.Type }} href={{ .Permalink | safeURL }}
+{{ end }}
