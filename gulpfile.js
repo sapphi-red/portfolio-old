@@ -81,7 +81,7 @@ exports.watch = gulp.parallel( () => {
   }
 );
 
-const reload = (done) => {
+const reload = done => {
   browserSync.reload();
   done();
 };

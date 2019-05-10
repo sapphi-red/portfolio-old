@@ -4,7 +4,9 @@ const $mainImg = $main.querySelector("img");
 
 let menu = false;
 
-if (location.pathname === "/") {
+if (location.pathname !== "/") {
+  menu = true;
+} else {
   // PC
   {
     const onMousedown = () => {
@@ -37,7 +39,7 @@ if (location.pathname === "/") {
     };
     $main.addEventListener("mousedown", onMousedown);
 
-    $main.addEventListener("dragstart", (e) => {
+    $main.addEventListener("dragstart", e => {
       e.preventDefault();
     });
   }
@@ -66,8 +68,6 @@ if (location.pathname === "/") {
     };
     $main.addEventListener("touchstart", onTouchStart);
   }
-} else {
-  menu = true;
 }
 
 $mainImg.addEventListener("click", () => {

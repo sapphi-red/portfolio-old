@@ -34,12 +34,13 @@ body {
     -webkit-touch-callout: none;
     //clip-path: circle(); // androidでanimationがバグるのでコメントアウト
     padding: 10px;
-    border-width: 0px;
+    border: {
+      width: 0px;
+      radius: 50% 50%;
+      style: solid;
+      color: #b0ffd1;
+    }
 
-    border-radius: 50% 50%;
-    border-style: solid;
-
-    border-color: #b0ffd1;
     transition: padding .5s, border-width .5s;
 
     &:hover:not(.focus) {
@@ -129,11 +130,13 @@ body {
       width: 20%;
 
       cursor: pointer;
-      border-radius: 50% 50%;
-      border-style: solid;
-      border-width: 2.5px;
+      border: {
+        radius: 50% 50%;
+        style: solid;
+        width: 2.5px;
+        color: #055f2b;
+      }
 
-      border-color: #055f2b;
       transition: all 1s;
 
       &:hover {
@@ -168,9 +171,11 @@ body {
           content: "";
           display: block;
           width: 0;
-          border-bottom-style: solid;
-          border-bottom-width: 2px;
-          border-bottom-color: #055f2b;
+          border-bottom: {
+            style: solid;
+            width: 2px;
+            color: #055f2b;
+          }
           transition: width .3s;
         }
         &:hover:after {
@@ -270,10 +275,12 @@ body {
       position: relative;
       margin: 5px;
       background: #EFEFEF;
-      border-style: solid;
-      border-width: 1px;
-      border-color: #CCCCCC;
-      border-radius: 3px;
+      border: {
+        style: solid;
+        width: 1px;
+        color: #CCCCCC;
+        radius: 3px;
+      }
       color: #333333;
       a {
         color: inherit;
