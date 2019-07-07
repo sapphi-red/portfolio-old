@@ -70,6 +70,7 @@ exports.default = gulp.parallel(html, css, js, img);
 
 exports.watch = gulp.parallel( () => {
     browserSync({
+      port: 3030,
       server: { baseDir: paths.output }
     });
     gulp.watch(`${paths.output}`, gulp.task(reload));
