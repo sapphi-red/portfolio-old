@@ -16,6 +16,10 @@ body {
   justify-content: center;
   align-items: center; }
   #container.start #main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     text-align: center;
     height: 40%;
@@ -24,11 +28,7 @@ body {
     user-select: none;
     -webkit-touch-callout: none;
     padding: 10px;
-    border-width: 0px;
-    border-radius: 50% 50%;
-    border-style: solid;
-    border-color: #b0ffd1;
-    transition: padding .5s, border-width .5s;
+    transition: padding .5s, height .5s;
     animation: glow 5s infinite 3s; }
     @media (max-aspect-ratio: 2 / 5) {
       #container.start #main {
@@ -36,8 +36,8 @@ body {
         width: 40%; } }
     #container.start #main:hover:not(.focus) {
       padding: 5px;
-      border-width: 5px;
-      transition: padding .5s, border-width .5s; }
+      height: calc(40% + 10px);
+      transition: padding .5s, height .5s; }
 
 @keyframes glow {
   0% {
@@ -68,14 +68,15 @@ body {
         fill: transparent; }
     #container.start #main.focus svg circle {
       stroke: #055f2b;
-      stroke-width: 5px;
       animation: circle 1s; }
 
 @keyframes circle {
   0% {
-    stroke-dasharray: 0 360; }
+    stroke-dasharray: 10 360;
+    stroke-width: 10px; }
   99.9%, to {
-    stroke-dasharray: 360 360; } }
+    stroke-dasharray: 360 360;
+    stroke-width: 5px; } }
     #container.start #main ul {
       width: 0;
       height: 0;
