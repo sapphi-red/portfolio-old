@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
-html, body, #container {
+html,
+body,
+#container {
   min-height: 100%;
   width: 100%;
 }
@@ -40,12 +42,12 @@ body {
     //clip-path: circle(); // androidでanimationがバグるのでコメントアウト
     padding: 10px;
 
-    transition: padding .5s, height .5s;
+    transition: padding 0.5s, height 0.5s;
 
     &:hover:not(.focus) {
       padding: 5px;
       height: calc(40% + 10px);
-      transition: padding .5s, height .5s;
+      transition: padding 0.5s, height 0.5s;
     }
 
     animation: glow 5s infinite 3s;
@@ -97,7 +99,8 @@ body {
           stroke-dasharray: 10 360;
           stroke-width: 10px;
         }
-        99.9%,to {
+        99.9%,
+        to {
           stroke-dasharray: 360 360;
           stroke-width: 5px;
         }
@@ -155,13 +158,13 @@ body {
     ul {
       overflow: hidden;
       background: #eeeeee;
-      transition: background .2s 1s;
+      transition: background 0.2s 1s;
 
       li {
         margin-bottom: 3px;
         list-style: none;
         opacity: 100;
-        transition: opacity .2s 1s;
+        transition: opacity 0.2s 1s;
 
         a {
           display: inline-block;
@@ -180,11 +183,11 @@ body {
             width: 2px;
             color: #055f2b;
           }
-          transition: width .3s;
+          transition: width 0.3s;
         }
         &:hover:after {
           width: 100%;
-          transition: width .3s;
+          transition: width 0.3s;
         }
       }
     }
@@ -194,7 +197,7 @@ body {
         padding: 5px 20px;
         margin: 8px 4px;
         max-height: 999999px; // a big number
-        transition: padding .2s, margin .2s, max-height .2s;
+        transition: padding 0.2s, margin 0.2s, max-height 0.2s;
       }
     }
 
@@ -203,7 +206,7 @@ body {
         padding: 0;
         margin: 0;
         max-height: 0;
-        transition: padding .2s, margin .2s, max-height .2s;
+        transition: padding 0.2s, margin 0.2s, max-height 0.2s;
       }
     }
   }
@@ -241,8 +244,8 @@ body {
     margin: 0;
   }
   li {
-   padding-left: 1em;
-   text-indent: -.7em;
+    padding-left: 1em;
+    text-indent: -0.7em;
   }
   li:before {
     content: "☘ ";
@@ -278,11 +281,11 @@ body {
     .tag {
       position: relative;
       margin: 5px;
-      background: #EFEFEF;
+      background: #efefef;
       border: {
         style: solid;
         width: 1px;
-        color: #CCCCCC;
+        color: #cccccc;
         radius: 3px;
       }
       color: #333333;
@@ -296,7 +299,7 @@ body {
         text-decoration: underline;
       }
     }
-    > .tag-list{
+    > .tag-list {
       justify-content: flex-start;
     }
 
@@ -324,13 +327,13 @@ body {
       .prev {
         text-align: left;
         &::before {
-          content: "<<"
+          content: "<<";
         }
       }
       .next {
         text-align: right;
         &::after {
-          content: ">>"
+          content: ">>";
         }
       }
     }
