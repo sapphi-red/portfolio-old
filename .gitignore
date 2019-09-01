@@ -1,5 +1,2 @@
-node_modules/
-/bin/
-/release/
+/node_modules/
 /.history/
-/blogsrc/public/

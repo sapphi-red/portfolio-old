@@ -1,0 +1,20 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "About me.",
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp watch",
+    "clean": "gulp clean"
+  },
+  "author": "green",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
