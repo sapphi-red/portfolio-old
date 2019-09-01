@@ -3,7 +3,7 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Link, Router } from '@reach/router'
 import FancyDiv from 'components/FancyDiv'
 import Dynamic from 'containers/Dynamic'
-import './app.css'
+import './app.sass'
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
