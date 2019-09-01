@@ -1,5 +1,9 @@
 {
-  "name": "react-static-example-typescript",
+  "name": "portfolio",
+  "version": "2.0.0",
+  "description": "About me.",
+  "author": "green",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "start": "react-static start",
