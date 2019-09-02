@@ -1,5 +1,6 @@
+/* eslint-disable */
 import path from 'path'
-import {posts} from './src/articles'
+import { posts } from './src/articles'
 
 // Typescript support in static.config.js is not yet supported, but is coming in a future update!
 
@@ -10,16 +11,16 @@ export default {
       {
         path: '/blog',
         getData: () => ({
-          posts,
+          posts
         }),
         children: posts.map((post, i) => ({
           path: `/post/${i}`,
           template: 'src/containers/Post',
           getData: () => ({
-            post,
-          }),
-        })),
-      },
+            post
+          })
+        }))
+      }
     ]
   },
   plugins: [
@@ -29,10 +30,10 @@ export default {
     [
       require.resolve('react-static-plugin-source-filesystem'),
       {
-        location: path.resolve('./src/pages'),
-      },
+        location: path.resolve('./src/pages')
+      }
     ],
     require.resolve('react-static-plugin-reach-router'),
-    require.resolve('react-static-plugin-sitemap'),
-  ],
+    require.resolve('react-static-plugin-sitemap')
+  ]
 }
