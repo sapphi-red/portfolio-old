@@ -8,7 +8,7 @@ const Blog: FC<{}> = () => {
 
   return (
     <div>
-      <h1>It's blog time.</h1>
+      <h1>{"It's blog time."}</h1>
       <br />
       All Posts:
       <ul>
