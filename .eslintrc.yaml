@@ -1,12 +1,13 @@
 extends:
-- "eslint:recommended"
-- "plugin:react/recommended"
-- "plugin:@typescript-eslint/recommended"
-- "plugin:@typescript-eslint/eslint-recommended"
-- "plugin:prettier/recommended"
-- "prettier/@typescript-eslint"
+  - "eslint:recommended"
+  - "plugin:react/recommended"
+  - "plugin:@typescript-eslint/recommended"
+  - "plugin:@typescript-eslint/eslint-recommended"
+  - "plugin:prettier/recommended"
+  - "prettier/@typescript-eslint"
 plugins:
-- "@typescript-eslint"
+  - "@typescript-eslint"
+  - react-hooks
 parser: "@typescript-eslint/parser"
 env:
   browser: true
@@ -17,8 +18,17 @@ parserOptions:
   ecmaVersion: 2020
   ecmaFeautures:
     jsx: true
+    useJSXTextNode: true
 rules:
   "prettier/prettier":
-  - error
-  - singleQuote: true
-    semi: false
+    - error
+    - singleQuote: true
+      semi: false
+  "react/prop-types":
+    - 0
+  "react-hooks/rules-of-hooks": error
+  "react-hooks/exhaustive-deps": warn
+  "react/jsx-filename-extension":
+    - "error"
+    - "extensions":
+        - .tsx

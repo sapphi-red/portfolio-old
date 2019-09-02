@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useRouteData } from 'react-static'
 import { Link } from '@reach/router'
-import { Post } from 'types'
+import { Post } from 'src/articles'
 
-export default () => {
-  const { posts }: { posts: Post[] } = useRouteData()
+const Blog: FC<{}> = () => {
+  const { posts } = useRouteData<{ posts: Post[] }>()
 
   return (
     <div>
@@ -13,11 +13,13 @@ export default () => {
       All Posts:
       <ul>
         {posts.map(post => (
-          <li key={post.id}>
-            <Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
+          <li key={post.title}>
+            <Link to={`/blog/post/${post.title}/`}>{post.title}</Link>
           </li>
         ))}
       </ul>
     </div>
   )
 }
+
+export default Blog

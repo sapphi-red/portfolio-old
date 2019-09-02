@@ -1,23 +1,19 @@
-import axios from 'axios'
 import path from 'path'
-// import { Post } from './types'
+import {posts} from './src/articles'
 
 // Typescript support in static.config.js is not yet supported, but is coming in a future update!
 
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getRoutes: async () => {
-    const { data: posts } /* :{ data: Post[] } */ = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts'
-    )
     return [
       {
         path: '/blog',
         getData: () => ({
           posts,
         }),
-        children: posts.map((post /* : Post */) => ({
-          path: `/post/${post.id}`,
+        children: posts.map((post, i) => ({
+          path: `/post/${i}`,
           template: 'src/containers/Post',
           getData: () => ({
             post,

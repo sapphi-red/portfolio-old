@@ -1,5 +1,5 @@
-import React, { FC } from "react"
-import { Link } from "@reach/router"
+import React, { FC } from 'react'
+import { Link } from '@reach/router'
 
 interface Page {
   name: string
@@ -7,15 +7,15 @@ interface Page {
 }
 
 const pages: Page[] = [
-  { name: "Introduction", path: "/introduction" },
-  { name: "Blog", path: "/blog" },
-  { name: "Works", path: "/works" },
-  { name: "Links", path: "/links" }
+  { name: 'Introduction', path: '/introduction' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Works', path: '/works' },
+  { name: 'Links', path: '/links' }
 ]
 
 const NavItem: FC<Page> = ({ name, path }) => (
   <li>
-    <Link to={path}>{ name }</Link>
+    <Link to={path}>{name}</Link>
   </li>
 )
 

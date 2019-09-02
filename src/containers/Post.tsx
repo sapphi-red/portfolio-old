@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useRouteData } from 'react-static'
 import { Link } from '@reach/router'
-import { Post } from '../../types'
+import { Post as TypePost } from '../articles/index'
 
-export default () => {
-  const { post }: { post: Post } = useRouteData()
+const Post: FC<{}> = () => {
+  const { post }: { post: TypePost } = useRouteData()
   return (
     <div>
       <Link to="/blog/">{'<'} Back</Link>
       <br />
       <h3>{post.title}</h3>
-      <p>{post.body}</p>
+      <p>{post.date}</p>
     </div>
   )
 }
+
+export default Post

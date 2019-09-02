@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC } from 'react'
 
 interface TypeLink {
   icon: string
@@ -8,21 +8,24 @@ interface TypeLink {
 
 const links: TypeLink[] = [
   {
-    title: "Twitter (@sapphi_red)",
-    link: "https://twitter.com/sapphi_red",
-    icon: "/img/Twitter_Logo_Blue.png"
-  },{
-    title: "GitHub (sapphi-red)",
-    link: "https://github.com/sapphi-red",
-    icon: "/img/GitHub-Mark-64px.png"
-  }, {
-    title: "Qiita (sapphi-red)",
-    link: "https://qiita.com/sapphi-red",
-    icon: "/img/qiita-favicon.png"
-  }, {
-    title: "AtCoder (sapphi_red)",
-    link: "https://atcoder.jp/users/sapphi_red",
-    icon: "/img/AtCoder.png"
+    title: 'Twitter (@sapphi_red)',
+    link: 'https://twitter.com/sapphi_red',
+    icon: '/img/Twitter_Logo_Blue.png'
+  },
+  {
+    title: 'GitHub (sapphi-red)',
+    link: 'https://github.com/sapphi-red',
+    icon: '/img/GitHub-Mark-64px.png'
+  },
+  {
+    title: 'Qiita (sapphi-red)',
+    link: 'https://qiita.com/sapphi-red',
+    icon: '/img/qiita-favicon.png'
+  },
+  {
+    title: 'AtCoder (sapphi_red)',
+    link: 'https://atcoder.jp/users/sapphi_red',
+    icon: '/img/AtCoder.png'
   }
 ]
 
@@ -40,7 +43,7 @@ const Links: FC<{}> = () => (
     <h1>リンク</h1>
     <ul>
       {links.map(link => (
-        <LinkItem {...link} />
+        <LinkItem {...link} key={link.link} />
       ))}
     </ul>
   </main>
