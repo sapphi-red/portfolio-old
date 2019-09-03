@@ -41,7 +41,7 @@ const LinkItem: FC<TypeLink> = ({ icon, link, title }) => (
 const Links: FC<{}> = () => (
   <main>
     <h1>リンク</h1>
-    <ul>
+    <ul className="links clover">
       {links.map(link => (
         <LinkItem {...link} key={link.link} />
       ))}

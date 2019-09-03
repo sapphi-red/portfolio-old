@@ -7,7 +7,7 @@ const Blog: FC<{}> = () => {
   const { posts } = useRouteData<{ posts: Post[] }>()
 
   return (
-    <div>
+    <main>
       <h1>{"It's blog time."}</h1>
       <br />
       All Posts:
@@ -18,7 +18,7 @@ const Blog: FC<{}> = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </main>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Link } from '@reach/router'
+import { navigate } from '@reach/router'
 
 interface Page {
   name: string
@@ -14,8 +14,12 @@ const pages: Page[] = [
 ]
 
 const NavItem: FC<Page> = ({ name, path }) => (
-  <li>
-    <Link to={path}>{name}</Link>
+  <li
+    onClick={(): void => {
+      navigate(path)
+    }}
+  >
+    {name}
   </li>
 )
 

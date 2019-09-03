@@ -1,27 +1,60 @@
 @import 'ress'
 
-html, body
+//
+html,
+body
   height: 100%
   width: 100%
 
 #root
   display: grid
-  grid-template-columns: minmax(10rem, 20%) auto
+  grid-template-columns: minmax(min-content, 20%) auto
   grid-template-rows: auto min-content
   min-height: 100%
-  > div
+  background: linear-gradient(#a9dfcd,#3db38c,#00422d)
+  &> div
     display: contents
+    &> main
+      height: min-content
 
 #navigator
   grid-row: 1
   grid-column: 1
   padding: 0.5em
+  nav
+    background-color: #eeeeee
+    padding: 0.5em 1em
+    ul
+      list-style-type: none
+      li
+        color: #00422d
+        font-size: 1.2rem
+        text-decoration: none
+        &::after
+          content: ""
+          display: block
+          width: 0
+          border-bottom:
+          style: solid
+          width: 0.1em
+          color: #055f2b
+          transition: width 0.3s
+        &:hover::after
+          width: 100%
+          transition: width 0.3s
+
+      li + li
+        margin-top: 0.2em
 
 #rooter
   display: contents
 
 main
-  padding: 0.5em
+  grid-row: 1
+  grid-column: 2
+  margin: 0.5em
+  padding: 0.5em 1em
+  background-color: #eeeeee
 
 #footer
   grid-row: 2
@@ -36,3 +69,28 @@ main
   font-size: 0.7rem
   a
     color: inherit
+
+hr
+  background-color: #ffffff
+  border-top: 0.1em dotted #8c8b8b
+
+ul.clover
+  list-style: none
+  li
+    padding-left: 1em
+    text-indent: -0.7em
+    &::before
+      content: "☘ "
+      color: green
+
+.card
+  border: solid 0.05em #888888
+  padding: 1em
+  margin: 1em 0
+
+.links
+  li
+    img
+      height: 1.2em
+      vertical-align: middle
+      margin-right: 0.2em
