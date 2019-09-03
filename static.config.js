@@ -26,7 +26,7 @@ export default {
   plugins: [
     'react-static-plugin-typescript',
     'react-static-plugin-mdx',
-    'react-static-plugin-sass',
+    ['react-static-plugin-sass', { includePaths: ['node_modules'] }],
     [
       require.resolve('react-static-plugin-source-filesystem'),
       {

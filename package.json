@@ -24,7 +24,8 @@
     "react-static-plugin-sass": "^7.1.0",
     "react-static-plugin-sitemap": "latest",
     "react-static-plugin-source-filesystem": "latest",
-    "react-static-plugin-typescript": "latest"
+    "react-static-plugin-typescript": "latest",
+    "ress": "^1.2.2"
   },
   "devDependencies": {
     "@types/node": "^12.7.3",
