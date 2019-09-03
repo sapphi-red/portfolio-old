@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Suspense } from 'react'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Router } from '@reach/router'
 import Dynamic from 'containers/Dynamic'
@@ -12,12 +12,12 @@ addPrefetchExcludes(['dynamic'])
 const App: FC<{}> = () => (
   <Root>
     <Nav />
-    <React.Suspense fallback={<main>Loading...</main>}>
-      <Router>
+    <Suspense fallback={<main>Loading...</main>}>
+      <Router id="router">
         <Dynamic path="dynamic" />
         <Routes path="*" />
       </Router>
-    </React.Suspense>
+    </Suspense>
     <Footer />
   </Root>
 )

@@ -20,7 +20,7 @@ const NavItem: FC<Page> = ({ name, path }) => (
 )
 
 const Nav: FC<{}> = () => (
-  <section>
+  <section id="navigator">
     <nav>
       <ul>
         {pages.map(page => (
