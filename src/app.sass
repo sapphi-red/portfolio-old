@@ -1,4 +1,6 @@
-@import 'ress'
+@import '~ress'
+@import '~highlight.js/styles/monokai'
+@import '~katex/dist/katex.css'
 
 //
 html,
@@ -30,6 +32,7 @@ body
         color: #00422d
         font-size: 1.2rem
         text-decoration: none
+        cursor: pointer
         &::after
           content: ""
           display: block
@@ -73,7 +76,6 @@ main
 hr
   background-color: #ffffff
   border-top: 0.1em dotted #8c8b8b
-
 ul.clover
   list-style: none
   li

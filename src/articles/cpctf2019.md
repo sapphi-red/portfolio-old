@@ -2,9 +2,8 @@
 title: "CPCTF2019のWriteup的なもの"
 slug: "cpctf2019"
 description: "CPCTF2019のWriteup的なもの。"
-date: 2019-04-21T21:50:07+09:00
-tags: ["CTF"]
-use_tex: false
+tags:
+- "CTF"
 ---
 
 ## まえがき

@@ -2,15 +2,12 @@
 title: "最初の記事"
 slug: "first_post"
 description: "投稿てすと"
-date: 2019-04-19T17:34:21+09:00
-tags: ["テスト"]
-use_tex: true
+tags:
+- "テスト"
 ---
 
-test  
+test
 てすと
-
-<!--more-->
 
 $$ x^y $$
 

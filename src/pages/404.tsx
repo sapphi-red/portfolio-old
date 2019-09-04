@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 
 const page404: FC<{}> = () => (
-  <div>
+  <main>
     <h1>{"404 - Oh no's! We couldn't find that page :("}</h1>
-  </div>
+  </main>
 )
 
 export default page404

@@ -1,32 +1,37 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { reloadClientData } from 'react-static/node'
 import path from 'path'
-import { posts } from './src/articles'
+import chokidar from 'chokidar'
+import { parseMd } from './parse-md'
 
 // Typescript support in static.config.js is not yet supported, but is coming in a future update!
+chokidar
+  .watch([
+    path.join(__dirname, 'src', 'articles'),
+    path.join(__dirname, 'parse-md.js')
+  ])
+  .on('all', () => reloadClientData())
 
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getRoutes: async () => {
+    const articles = await parseMd()
+
     return [
       {
         path: '/blog',
-        getData: () => ({
-          posts
-        }),
-        children: posts.map((post, i) => ({
-          path: `/post/${i}`,
-          template: 'src/containers/Post',
-          getData: () => ({
-            post
-          })
+        getData: () => ({ articles }),
+        children: articles.map(article => ({
+          path: `/articles/${article.data.frontmatter.slug}`,
+          template: 'src/containers/Article',
+          getData: () => ({ article })
         }))
       }
     ]
   },
   plugins: [
     'react-static-plugin-typescript',
-    'react-static-plugin-mdx',
-    ['react-static-plugin-sass', { includePaths: ['node_modules'] }],
+    'react-static-plugin-sass',
     [
       require.resolve('react-static-plugin-source-filesystem'),
       {

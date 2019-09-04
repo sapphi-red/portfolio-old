@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { useRouteData } from 'react-static'
 import { Link } from '@reach/router'
-import { Post } from 'src/articles'
+import Article from 'src/Article'
 
 const Blog: FC<{}> = () => {
-  const { posts } = useRouteData<{ posts: Post[] }>()
+  const { articles } = useRouteData<{ articles: Article[] }>()
 
   return (
     <main>
@@ -12,9 +12,11 @@ const Blog: FC<{}> = () => {
       <br />
       All Posts:
       <ul>
-        {posts.map(post => (
-          <li key={post.title}>
-            <Link to={`/blog/post/${post.title}/`}>{post.title}</Link>
+        {articles.map(article => (
+          <li key={article.data.frontmatter.slug}>
+            <Link to={`/blog/articles/${article.data.frontmatter.slug}/`}>
+              {article.data.frontmatter.title}
+            </Link>
           </li>
         ))}
       </ul>
