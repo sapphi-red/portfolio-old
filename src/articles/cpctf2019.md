@@ -17,7 +17,7 @@ CTPと競プロを混ぜたみたいなものみたいです。
 
 ## Password: C4 (300)
 [問題](https://cpctf.space/challenges/6f3c8a4e-83c8-427d-a69a-b1394dc5ad51?hide=true)  
-{{< figure src="/blog/imgs/2019-04-21-21-50-50.png" class="responsive" >}}
+![c4](/blog/img/2019-04-21-21-50-50.png)
 ブラウザの開発者ツールを開くとwasmを呼び出しているのがわかるので、wasmを保存して中をバイナリエディターで開いて`FLAG`あたりで文字列検索をかけてみます。
 
 > **wasmについての補足**  
@@ -25,7 +25,7 @@ CTPと競プロを混ぜたみたいなものみたいです。
 
 ## Password: C5 (400)
 [問題](https://cpctf.space/challenges/fc499694-d5d7-4aec-88d1-9b254d174c80?hide=true)  
-{{< figure src="/blog/imgs/2019-04-21-22-19-23.png" class="responsive" >}}
+![c5](/blog/img/2019-04-21-22-19-23.png)
 開発者ツールを開いても実行されているコードが見当たらないので、`go`のボタンに登録されているイベントを確認してみます。すると、`VM18:7`にコードが存在するようなので(どのように動いているかはわからないです…)そこをクリックすると実行されている関連コードが表示されます。
 
 ## deleted flag (200)

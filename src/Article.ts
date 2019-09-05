@@ -1,4 +1,4 @@
-type DateString = string
+type ISODateString = string
 
 interface Frontmatter {
   title: string
@@ -8,8 +8,12 @@ interface Frontmatter {
 }
 
 interface Meta {
-  createdAt: DateString
-  modifiedAt: DateString
+  createdAt: string
+  modifiedAt: string
+  createdAtLong: string
+  modifiedAtLong: string
+  createdAtDateTime: ISODateString
+  modifiedAtDateTime: ISODateString
   filename: string
 }
 

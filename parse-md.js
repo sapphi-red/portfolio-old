@@ -53,7 +53,9 @@ const mdParser = () => {
         modifiedAt: dateToString(stat.mtime),
         createdAtLong: dateToLongString(stat.birthtime),
         modifiedAtLong: dateToLongString(stat.mtime),
-        filename: path.basename(file.history[0], '.md')
+        createdAtDateTime: stat.birthtime.toISOString(),
+        modifiedAtDateTime: stat.mtime.toISOString(),
+        filename: path.basename(file.history[0], ".md")
       }
     })
     .use(slug)

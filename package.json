@@ -26,6 +26,7 @@
     "react-static-plugin-sitemap": "latest",
     "react-static-plugin-source-filesystem": "latest",
     "react-static-plugin-typescript": "latest",
+    "react-utterances": "^0.6.4",
     "ress": "^1.2.2"
   },
   "devDependencies": {
