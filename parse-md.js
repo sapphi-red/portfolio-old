@@ -20,10 +20,16 @@ import katex from 'rehype-katex'
 import stringify from 'rehype-stringify'
 import yaml from 'js-yaml'
 
+import 'array-flat-polyfill'
+
 const ARTICLE_FOLDER = path.join(__dirname, 'src/articles')
 
 const padWith0 = a => (a + '').padStart(2, '0')
 const dateToString = date =>
+  `${padWith0(date.getFullYear())}/${padWith0(date.getMonth() + 1)}/${padWith0(
+    date.getDate()
+  )}`
+const dateToLongString = date =>
   `${padWith0(date.getFullYear())}/${padWith0(date.getMonth() + 1)}/${padWith0(
     date.getDate()
   )} ${padWith0(date.getHours())}:${padWith0(date.getMinutes())}:${padWith0(
@@ -43,8 +49,11 @@ const mdParser = () => {
       if (!file.history[0]) return
       const stat = statSync(file.history[0])
       file.data.meta = {
-        createdAt: stat.birthtime,
-        modifiedAt: stat.mtime
+        createdAt: dateToString(stat.birthtime),
+        modifiedAt: dateToString(stat.mtime),
+        createdAtLong: dateToLongString(stat.birthtime),
+        modifiedAtLong: dateToLongString(stat.mtime),
+        filename: path.basename(file.history[0], '.md')
       }
     })
     .use(slug)
@@ -69,10 +78,24 @@ export const parseMd = async () => {
   const parser = mdParser()
   let files = await fs.readdir(ARTICLE_FOLDER)
   files = files.filter(fileName => fileName.endsWith('.md'))
-  return Promise.all(
+  const articles = await Promise.all(
     files.map(async fileName => {
       const file = await vfile.read(path.join(ARTICLE_FOLDER, fileName))
       return parser.process(file)
     })
   )
+
+  const tags = new Map()
+
+  for (const article of articles) {
+    for (const tag of article.data.frontmatter.tags) {
+      if (!tags.has(tag)) tags.set(tag, [])
+      tags.get(tag).push(article)
+    }
+  }
+
+  return {
+    articles,
+    tags: Array.from(tags.entries()).sort((a, b) => a.length - b.length)
+  }
 }

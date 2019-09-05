@@ -37,6 +37,7 @@
     "@types/webpack-env": "^1.14.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
+    "array-flat-polyfill": "^1.0.1",
     "chokidar": "^3.0.2",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.1.0",

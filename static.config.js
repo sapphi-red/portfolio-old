@@ -18,23 +18,38 @@ chokidar
 export default {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   getRoutes: async () => {
-    const articles = await parseMd()
+    const { articles, tags } = await parseMd()
 
     return [
       {
         path: '/blog',
-        getData: () => ({ articles }),
-        children: articles.map(article => ({
-          path: `/articles/${article.data.frontmatter.slug}`,
-          template: 'src/containers/Article',
-          getData: () => ({
-            article,
-            ogp: {
-              title: `${article.data.frontmatter.title} - 翡翠置き場`,
-              description: article.data.frontmatter.description
-            }
-          })
-        }))
+        getData: () => ({ articles, tags }),
+        children: [].concat(
+          articles.map(article => ({
+            path: `/articles/${article.data.meta.filename}`,
+            template: 'src/containers/Article',
+            getData: () => ({
+              article,
+              ogp: {
+                title: `${article.data.frontmatter.title} - 翡翠置き場`,
+                description: article.data.frontmatter.description
+              }
+            })
+          })),
+          tags.map(([tag, articles]) => ({
+            path: `/tags/${tag}`,
+            template: 'src/containers/Taxonomy',
+            getData: () => ({
+              type: 'タグ',
+              name: tag,
+              articles,
+              ogp: {
+                title: `タグ:${tag} - 翡翠置き場`,
+                description: `${tag}のタグがついている記事の一覧。`
+              }
+            })
+          }))
+        )
       }
     ]
   },
@@ -54,10 +69,14 @@ export default {
   Document: ({ Html, Head, Body, children, state }) => {
     let title = 'green.sapphi.red'
     let desc = '翠のポートフォリオ。'
+    let path = 'https://green.sapphi.red/'
     if (state.routeInfo && state.routeInfo.data && state.routeInfo.data.ogp) {
       const { ogp } = state.routeInfo.data
       title = ogp.title
       desc = ogp.description
+    }
+    if (state.route && state.route.path) {
+      path = `${path}${state.route.path}`
     }
     return (
       <Html lang="ja">
@@ -67,10 +86,7 @@ export default {
           <meta name="description" content={desc} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={desc} />
-          <meta
-            property="og:url"
-            content={`https://green.sapphi.red/${state.route.path}`}
-          />
+          <meta property="og:url" content={path} />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@sapphi_red" />
           <meta name="og:img" content="https://green.sapphi.red/img/icon.png" />

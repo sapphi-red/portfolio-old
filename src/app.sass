@@ -74,6 +74,7 @@ main
     color: inherit
 
 hr
+  margin: 1em 0
   background-color: #ffffff
   border-top: 0.1em dotted #8c8b8b
 ul.clover
@@ -96,3 +97,22 @@ ul.clover
       height: 1.2em
       vertical-align: middle
       margin-right: 0.2em
+
+.tags
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  .tag
+    margin: 5px
+    color: #333333
+    background-color: #efefef
+    border:
+      style: solid
+      width: 1px
+      color: #cccccc
+      radius: 3px
+    a
+      color: inherit
+      text-decoration: none
+      &:hover
+        text-decoration: underline
