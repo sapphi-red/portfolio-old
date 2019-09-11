@@ -15,6 +15,8 @@ import subSuper from 'remark-sub-super'
 import sectionize from 'remark-sectionize'
 import math from 'remark-math'
 import highlight from 'remark-highlight.js'
+import containers from 'remark-containers'
+import genericExtensions from 'remark-generic-extensions'
 
 import katex from 'rehype-katex'
 import stringify from 'rehype-stringify'
@@ -35,6 +37,77 @@ const dateToLongString = date =>
   )} ${padWith0(date.getHours())}:${padWith0(date.getMinutes())}:${padWith0(
     date.getSeconds()
   )}`
+
+const customContainers = [
+  {
+    type: 'danger',
+    element: 'div',
+    transform: (node, config) => {
+      node.data.hProperties = {
+        className: `container danger${config ? ' ' + config : ''}`
+      }
+    }
+  },
+  {
+    type: 'warn',
+    element: 'div',
+    transform: (node, config) => {
+      node.data.hProperties = {
+        className: `container warn${config ? ' ' + config : ''}`
+      }
+    }
+  },
+  {
+    type: 'info',
+    element: 'div',
+    transform: (node, config) => {
+      node.data.hProperties = {
+        className: `container info${config ? ' ' + config : ''}`
+      }
+    }
+  },
+  {
+    type: 'success',
+    element: 'div',
+    transform: (node, config) => {
+      node.data.hProperties = {
+        className: `container success${config ? ' ' + config : ''}`
+      }
+    }
+  }
+]
+
+/*
+<blockquote class="twitter-tweet">
+<a href="https://twitter.com/TwitterSupport/status/806207281410883584?ref_src=twsrc%5Etfw">December 6, 2016</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+*/
+
+const customElements = {
+  tweet: {
+    html: {
+      tagName: 'md-tweet-widget',
+      properties: {
+        dataId: '::argument::'
+      },
+      children: [
+        {
+          tagName: 'span',
+          properties: {
+            className: 'alt'
+          },
+          children: [
+            {
+              type: 'text',
+              value: '::content::'
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
 
 const mdParser = () => {
   return unified()
@@ -70,6 +143,12 @@ const mdParser = () => {
     .use(subSuper)
     .use(math)
     .use(highlight)
+    .use(containers, {
+      custom: customContainers
+    })
+    .use(genericExtensions, {
+      elements: customElements
+    })
     .use(sectionize)
     .use(remark2rehype)
     .use(katex, {

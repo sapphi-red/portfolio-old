@@ -1,13 +1,29 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useRouteData } from 'react-static'
 import TypeArticle from '../Article'
 import Tag from 'components/Tag'
 import Utterances from 'react-utterances'
 
+type TwitterWidget = any
+
+declare const twttr: TwitterWidget
+
 const Article: FC<{}> = () => {
   const { article } = useRouteData<{ article: TypeArticle }>()
 
   const { frontmatter, meta } = article.data
+
+  useEffect(() => {
+    const tweets = document.getElementsByTagName(
+      'md-tweet-widget'
+    ) as HTMLCollectionOf<HTMLElement>
+    Promise.all(
+      Array.from(tweets).map(async tweet => {
+        await twttr.widgets.createTweet(tweet.dataset.id, tweet)
+        tweet.getElementsByClassName('alt')[0].remove()
+      })
+    )
+  }, [])
 
   return (
     <main>

@@ -10,3 +10,19 @@ tags:
 # test
 
 test
+
+:::danger
+a
+:::
+
+:::warn a
+a
+:::
+
+:::info a aa
+a
+:::
+
+:::success a aa aaa
+a
+:::

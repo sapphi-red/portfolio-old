@@ -92,6 +92,11 @@ export default {
           <meta name="og:img" content="https://green.sapphi.red/img/icon.png" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" type="image/png" href="/img/icon.png" />
+          <script
+            src="https://platform.twitter.com/widgets.js"
+            defer
+            async
+          ></script>
         </Head>
         <Body>{children}</Body>
       </Html>
