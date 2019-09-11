@@ -55,7 +55,7 @@ const mdParser = () => {
         modifiedAtLong: dateToLongString(stat.mtime),
         createdAtDateTime: stat.birthtime.toISOString(),
         modifiedAtDateTime: stat.mtime.toISOString(),
-        filename: path.basename(file.history[0], ".md")
+        filename: path.basename(file.history[0], '.md')
       }
     })
     .use(slug)
@@ -72,7 +72,10 @@ const mdParser = () => {
     .use(highlight)
     .use(sectionize)
     .use(remark2rehype)
-    .use(katex)
+    .use(katex, {
+      strict: errCode =>
+        errCode === 'newLineInDisplayMode' ? 'ignore' : 'warn'
+    })
     .use(stringify)
 }
 
