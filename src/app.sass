@@ -55,6 +55,7 @@ body
 main
   grid-row: 1
   grid-column: 2
+  height: fit-content
   margin: 0.5em
   padding: 0.5em 1em
   background-color: #eeeeee
@@ -117,6 +118,18 @@ ul.clover
       text-decoration: none
       &:hover
         text-decoration: underline
+
+#info
+  .created
+    text-align: right
+    &::before
+      content: "投稿: "
+  .modified
+    text-align: right
+    &::before
+      content: "編集: "
+  .tags
+    justify-content: flex-end
 
 .md
   word-break: break-all
