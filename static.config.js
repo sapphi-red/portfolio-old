@@ -10,7 +10,7 @@ import { parseMd } from './parse-md'
 // Typescript support in static.config.js is not yet supported, but is coming in a future update!
 chokidar
   .watch([
-    path.join(__dirname, 'src', 'articles'),
+    path.join(__dirname, 'src/articles'),
     path.join(__dirname, 'parse-md.js')
   ])
   .on('all', () => reloadClientData())
@@ -23,8 +23,12 @@ export default {
     return [
       {
         path: '/blog',
-        getData: () => ({ articles, tags }),
+        getData: () => ({ articles: articles.slice(0, 20), tags }),
         children: [].concat(
+          {
+            path: '/articles',
+            getData: () => ({ articles })
+          },
           articles.map(article => ({
             path: `/articles/${article.data.meta.filename}`,
             template: 'src/containers/Article',
