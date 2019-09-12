@@ -77,13 +77,6 @@ const customContainers = [
   }
 ]
 
-/*
-<blockquote class="twitter-tweet">
-<a href="https://twitter.com/TwitterSupport/status/806207281410883584?ref_src=twsrc%5Etfw">December 6, 2016</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-*/
-
 const customElements = {
   tweet: {
     html: {
