@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { useRouteData } from 'react-static'
+import { Link } from '@reach/router'
 import Article, { Tags } from 'src/Article'
 import ArticleLi from 'components/ArticleLi'
 import Tag from 'components/Tag'
@@ -19,6 +20,7 @@ const Blog: FC<{}> = () => {
           ))}
         </ul>
       </section>
+      <Link to="/blog/articles">記事一覧</Link>
       <hr />
       <section>
         <h2>タグ一覧</h2>

@@ -3,7 +3,7 @@ import { useRouteData } from 'react-static'
 import Article from 'src/Article'
 import ArticleLi from 'components/ArticleLi'
 
-const ARTICLES_IN_ONE_PAGE = 1
+const ARTICLES_IN_ONE_PAGE = 20
 
 const Articles: FC<{}> = () => {
   const { articles } = useRouteData<{ articles: Article[] }>()
