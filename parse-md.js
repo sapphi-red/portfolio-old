@@ -121,6 +121,7 @@ const mdParser = () => {
         modifiedAtLong: dateToLongString(stat.mtime),
         createdAtDateTime: stat.birthtime.toISOString(),
         modifiedAtDateTime: stat.mtime.toISOString(),
+        createdAtMs: stat.birthtimeMs,
         filename: path.basename(file.history[0], '.md')
       }
     })
@@ -172,7 +173,9 @@ export const parseMd = async () => {
   }
 
   return {
-    articles,
+    articles: articles.sort(
+      (a, b) => b.data.meta.createdAtMs - a.data.meta.createdAtMs
+    ),
     tags: Array.from(tags.entries()).sort((a, b) => a.length - b.length)
   }
 }
